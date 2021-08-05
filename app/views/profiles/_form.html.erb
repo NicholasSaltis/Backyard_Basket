@@ -7,7 +7,14 @@
     <%= f.input :user_name %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.association :user %>
+    <%= f.hidden_field :user, value: current_user.id%>
+    <%=f.fields_for :addresses do |a|%>
+      <%=a.input :house_number%>
+      <%=a.input :street_name%>
+      <%=a.input :suburb%>
+      <%=a.input :postcode%>
+      <%=a.input :state%>
+    <%end%>
   </div>
 
   <div class="form-actions">

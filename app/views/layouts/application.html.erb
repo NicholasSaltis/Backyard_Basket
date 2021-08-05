@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%=render partial: "partials/navbar"%>
+    <%=render partial: "partials/navbar", locals: {profile_id: @profile_id}%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
