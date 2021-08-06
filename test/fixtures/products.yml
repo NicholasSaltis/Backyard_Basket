@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  organic: false
+  harvested_date: 2021-08-06
+  expiry_date: 2021-08-06
+  stock: 1
+  price_per_unit: 1.5
+  profile: one
+
+two:
+  name: MyString
+  description: MyText
+  organic: false
+  harvested_date: 2021-08-06
+  expiry_date: 2021-08-06
+  stock: 1
+  price_per_unit: 1.5
+  profile: two
