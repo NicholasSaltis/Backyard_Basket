@@ -3,4 +3,6 @@ class Profile < ApplicationRecord
   has_one :address
   has_many :products, dependent: :destroy
   accepts_nested_attributes_for :address
+  has_many :recieved_reviews, class_name: 'Review', foreign_key: 'seller_id'
+  has_many :posted_reviews, class_name: 'Review', foreign_key: 'reviewer_id'
 end
