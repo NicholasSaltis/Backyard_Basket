@@ -20,13 +20,15 @@
                 <%=link_to "Profile", profile_path(id: profile_id), class: "nav-link"%>
             <%end%>
             </li>
-            
-            <li class="nav-item active">
-                <%=link_to "Sign in", root_path, class: "nav-link btn btn-success"%>
-            </li>
-            <li class="nav-item active">
-                <%=link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link btn btn-success"%>
-            </li>
+            <%if user_signed_in? && current_user.profile%>
+                <li class="nav-item active">
+                    <%=link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link btn btn-danger"%>
+                </li>
+            <%else%>
+                <li class="nav-item active">
+                    <%=link_to "Sign in", root_path, class: "nav-link btn btn-success"%>
+                </li>
+            <%end%>
         </ul>
     </div>
 </div>
