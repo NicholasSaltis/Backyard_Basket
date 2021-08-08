@@ -3,6 +3,6 @@ class HomeController < ApplicationController
   end
 
   def browse
-    
+    @profiles = Profile.all
   end
 end
