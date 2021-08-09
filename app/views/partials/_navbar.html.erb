@@ -22,11 +22,11 @@
             </li>
             <%if user_signed_in? && current_user.profile%>
                 <li class="nav-item active">
-                    <%=link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link btn btn-danger"%>
+                    <%=link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link btn btn-light text-danger"%>
                 </li>
             <%else%>
                 <li class="nav-item active">
-                    <%=link_to "Sign in", root_path, class: "nav-link btn btn-success"%>
+                    <%=link_to "Sign in", root_path, class: "nav-link btn btn-light text-primary"%>
                 </li>
             <%end%>
         </ul>

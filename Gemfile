@@ -34,6 +34,8 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'country_select', '~> 6.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
