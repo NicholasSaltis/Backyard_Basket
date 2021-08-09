@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'country_select', '~> 6.0'
+gem 'acts-as-messageable'
+
 
 
 group :development, :test do
