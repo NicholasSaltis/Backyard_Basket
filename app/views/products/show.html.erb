@@ -1,39 +1,42 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container p-5 mx-auto">
 <p>
-  <strong>Name:</strong>
+  <strong class="d-block">Name:</strong>
   <%= @product.name %>
 </p>
-
+<hr>
 <p>
-  <strong>Description:</strong>
+  <strong class="d-block">Description:</strong>
   <%= @product.description %>
 </p>
-
+<hr>
 <p>
-  <strong>Organic:</strong>
+  <strong class="d-block">Organic:</strong>
   <%= @product.organic %>
 </p>
-
+<hr>
 <p>
-  <strong>Harvested date:</strong>
+  <strong class="d-block">Harvested date:</strong>
   <%= @product.harvested_date %>
 </p>
-
+<hr>
 <p>
-  <strong>Expiry date:</strong>
+  <strong class="d-block">Expiry date:</strong>
   <%= @product.expiry_date %>
 </p>
-
+<hr>
 <p>
-  <strong>Stock:</strong>
+  <strong class="d-block">Stock:</strong>
   <%= @product.stock %>
 </p>
-
+<hr>
 <p>
-  <strong>Price per unit:</strong>
+  <strong class="d-block">Price per unit:</strong>
   <%= @product.price_per_unit %>
 </p>
-
+<hr>
+<% if @product.profile.id == current_user.profile.id%>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+<% end %>
+</div>

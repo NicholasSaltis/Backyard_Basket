@@ -1,24 +1,59 @@
+
+<% if current_user.profile.id == @profile.id %>
+  <p>
+    <strong>User name:</strong>
+    <%= @profile.user_name %>
+  </p>
+
+  <p>
+    <strong>First name:</strong>
+    <%= @profile.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= @profile.last_name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @profile.address.postcode %>
+  </p>
+
+  <%= link_to 'Edit', edit_profile_path(@profile) %>
+  <%= link_to 'Back', root_path %>    
+<% else %>
+  
+  <h1 class="text-center display-3 my-5"><%= @profile.user_name %>'s Pantry</h1>
+  <div class="row">
+    <div class="col-sm-6 border">
+      <p class="text-center">
+        <strong>
+        <%= @profile.address.suburb %>,
+        <%= @profile.address.state %>, 
+        <%= @profile.address.country %>
+        </strong>
+      </p>
+    </div>
+    <div class="col-sm-6 border">
+      <h2 class="text-center">Contact</h2>
+    </div>
+  </div>
+  
+  
+
+  <div class="row justify-content-center">
+        <% @profile.products.each do |product|%>
+            <div class="card col-sm-3 m-2">
+                <div class="card-body">
+                    <h4 class="card-title"><%= product.name %></h4>
+                    <p class="card-text"><%= product.description %></p>
+                    <%= link_to "View Item", product_path(id: product.id), class: "btn btn-light text-primary mx-auto" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User name:</strong>
-  <%= @profile.user_name %>
-</p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @profile.address.postcode %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', root_path %>
