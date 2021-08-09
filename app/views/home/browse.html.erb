@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="text-center mb-5">Find a Grower near you</h1>
+    <div class="row justify-content-center">
+        <% @nearby_profiles.each do |seller|%>
+            <div class="card col-sm-3">
+                <div class="card-body">
+                    <h4 class="card-title"><%= seller.profile.user_name %></h4>
+                    <p class="card-text text-muted"><%= seller.suburb %></p>
+                    <%= link_to "View #{seller.profile.user_name}'s Profile", profile_path(id: seller.profile.id), class: "btn btn-light text-primary mx-auto" %>
+                </div>
+                
+            </div>
+        <% end %>
+    </div>
+</div>
