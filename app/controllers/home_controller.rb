@@ -3,7 +3,13 @@ class HomeController < ApplicationController
   end
 
   def browse
-    @profiles = Profile.all
-    @nearby_profiles = current_user.profile.address.nearbys(5)
+
+    if user_signed_in?
+      @nearby_profiles = current_user.profile.address.nearbys(5)
+    else
+      @profiles = Profile.all
+    end
+    
+    
   end
 end

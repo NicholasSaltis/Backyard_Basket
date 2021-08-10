@@ -2,9 +2,9 @@
     <h1>Inbox</h1>
     <% @messages.each do |inbox_message| %>
         <div class="container border">
-            <h3><%= inbox_message.sent_messageable.user_name%></h3>
+            <h3>From: <%= inbox_message.sent_messageable.user_name%></h3>
             <h4><%= inbox_message.topic %></h4>
-            <p><%= inbox_message.created_at %></p>
+            <p>Date Sent:<%= inbox_message.created_at %></p>
             <%= link_to "reply", message_path(inbox_message) %>
         </div>
     <% end %>
