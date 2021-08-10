@@ -11,6 +11,7 @@
     <%= f.input :expiry_date %>
     <%= f.input :stock %>
     <%= f.input :price_per_unit %>
+    <%= f.input :pictures, as: :file, :input_html => { :multiple => true } %>
     <%= f.hidden_field :profile %>
   </div>
 
