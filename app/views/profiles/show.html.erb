@@ -1,32 +1,33 @@
 
 <% if current_user.profile.id == @profile.id %>
+<%= @profile.profile_img %>
+<div class="container">
+  <h4>
+    <strong><%= @profile.first_name %> <%= @profile.last_name %></strong>
+  </h4>
+
   <p>
     <strong>User name:</strong>
     <%= @profile.user_name %>
   </p>
 
   <p>
-    <strong>First name:</strong>
-    <%= @profile.first_name %>
-  </p>
-
-  <p>
     <strong>Last name:</strong>
-    <%= @profile.last_name %>
+    <%= @profile.bio %>
   </p>
 
   <p>
     <strong>Address:</strong>
-    <%= @profile.address.postcode %>
+    <%= @profile.address.house_number %> <%= @profile.address.street_name %>, <%= @profile.address.suburb.capitalize %>, <%= @profile.address.state.upcase %>, <%= @profile.address.country.upcase %>
   </p>
 
-  <%= link_to 'Edit', edit_profile_path(@profile) %>
-
+  <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-light text-primary" %>
+</div>
 <% else %>
   
   <h1 class="text-center display-3 my-5"><%= @profile.user_name %>'s Pantry</h1>
-  <div class="row">
-    <div class="col-sm-6">
+  <div class="row justify-content-center">
+    <div class="col-sm-5">
       <h2 class="text-center my-3">About me</h2>
       <p class="text-center">
         <%= @profile.address.suburb.capitalize %>,
@@ -35,7 +36,7 @@
       </p>
       <p class="m-3"><%= @profile.bio %></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-5">
       <h2 class="text-center my-3">Contact</h2>
       <div class="form-group mx-3">
         <%= form_with url: new_message_path do |form| %>
