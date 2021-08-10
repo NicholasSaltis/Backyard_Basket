@@ -20,28 +20,24 @@
     <%= @profile.address.postcode %>
   </p>
 
-  <% @profile.sent_messages.each do |message|%>
-    <%= message.body%>
-  <%end%>
-
   <%= link_to 'Edit', edit_profile_path(@profile) %>
-  <%= link_to 'Back', root_path %>    
+
 <% else %>
   
   <h1 class="text-center display-3 my-5"><%= @profile.user_name %>'s Pantry</h1>
   <div class="row">
-    <div class="col-sm-6 border">
+    <div class="col-sm-6">
       <h2 class="text-center my-3">About me</h2>
       <p class="text-center">
         <%= @profile.address.suburb.capitalize %>,
         <%= @profile.address.state.upcase %>, 
         <%= @profile.address.country %>
       </p>
-      <p class="m-3"></p>
+      <p class="m-3"><%= @profile.bio %></p>
     </div>
-    <div class="col-sm-6 border">
+    <div class="col-sm-6">
       <h2 class="text-center my-3">Contact</h2>
-      <div class="form-group">
+      <div class="form-group mx-3">
         <%= form_with url: new_message_path do |form| %>
           <%= form.label :topic %>
           <%= form.text_field :topic, class: "form-control" %>

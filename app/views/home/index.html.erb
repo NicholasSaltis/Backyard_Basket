@@ -8,34 +8,38 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, maxime placeat, eos voluptatum libero repellat sequi rerum sunt officia, nihil cumque explicabo expedita? Qui corrupti dicta exercitationem ab facere ipsa?</p>
             </div>
         </div>
-        <div class="col-sm-5">
-            <div class="card">
-                <h2 class="card-title mx-auto pt-4 pb-2">Sign up</h2>
-                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= f.error_notification %>
+        <% if user_signed_in?%>
+        <% else %>
+            <div class="col-sm-5">
+                <div class="card">
+                    <h2 class="card-title mx-auto pt-4 pb-2">Sign up</h2>
+                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= f.error_notification %>
 
-                <div class="form-inputs mx-4">
-                    <%= f.input :email,
-                                required: true,
-                                autofocus: true,
-                                input_html: { autocomplete: "email" }%>
-                    <%= f.input :password,
-                                required: true,
-                                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                                input_html: { autocomplete: "new-password" } %>
-                    <%= f.input :password_confirmation,
-                                required: true,
-                                input_html: { autocomplete: "new-password" } %>
+                    <div class="form-inputs mx-4">
+                        <%= f.input :email,
+                                    required: true,
+                                    autofocus: true,
+                                    input_html: { autocomplete: "email" }%>
+                        <%= f.input :password,
+                                    required: true,
+                                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                                    input_html: { autocomplete: "new-password" } %>
+                        <%= f.input :password_confirmation,
+                                    required: true,
+                                    input_html: { autocomplete: "new-password" } %>
+                    </div>
+
+                    <div class="form-actions mx-4 my-4 text-center">
+                        <%= f.button :submit, "Sign up", class: "btn btn-primary"%>
+                    </div>
+                    <% end %>
+
+                    <%= render "devise/shared/links" %>
                 </div>
-
-                <div class="form-actions mx-4 my-4 text-center">
-                    <%= f.button :submit, "Sign up", class: "btn btn-primary"%>
-                </div>
-                <% end %>
-
-                <%= render "devise/shared/links" %>
             </div>
-        </div>
+        <% end %>
+        
         
         
     </div>

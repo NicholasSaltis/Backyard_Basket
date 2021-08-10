@@ -1,0 +1,19 @@
+<div class="container border">
+    <h3><%= @message.sent_messageable.user_name%></h3>
+    <h4><%= @message.topic %></h4>
+    <p><%= @message.body%></p>
+    <p><%= @message.created_at %></p>
+    
+</div>
+
+<div class="form-group mx-3">
+<%= form_with url: new_message_path do |form| %>
+    <%# <%= form.label :topic %>
+    <%# <%= form.text_field :topic, class: "form-control" %>
+    <%= form.label :body %>
+    <%= form.text_area :body, class: "form-control", size: "30x5" %>
+    <%= form.hidden_field :profile_id, value: @message.sent_messageable.id %>
+    <%= form.hidden_field :response_type, :value => "reply"%>
+    <%= form.submit "Send Message", class: "btn btn-light text-primary d-block mx-auto my-3" %>
+<% end %>
+</div>

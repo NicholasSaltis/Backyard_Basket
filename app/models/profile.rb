@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_one :address
+  has_one :address, dependent: :destroy
   has_many :products, dependent: :destroy
   accepts_nested_attributes_for :address
   has_many :recieved_reviews, class_name: 'Review', foreign_key: 'seller_id'

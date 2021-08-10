@@ -1,25 +1,27 @@
-
+<div class="container px-5">
 <%= simple_form_for(@profile) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :user_name %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
+    <%= f.input :user_name, class: "my-2"%>
+    <%= f.input :first_name, class: "my-2"%>
+    <%= f.input :last_name, class: "my-2"%>
+    <%= f.input :bio, class: "my-2"%>
     <%= f.hidden_field :user, value: current_user.id%>
     <%=f.fields_for :address do |a|%>
-      <%=a.input :house_number%>
-      <%=a.input :street_name%>
-      <%=a.input :suburb%>
-      <%=a.input :postcode%>
-      <%=a.input :state%>
-      <%=a.input :country%>
+      <%=a.input :house_number, class: "my-2"%>
+      <%=a.input :street_name, class: "my-2"%>
+      <%=a.input :suburb, class: "my-2"%>
+      <%=a.input :postcode, class: "my-2"%>
+      <%=a.input :state, class: "my-2"%>
+      <%=a.input :country, class: "my-2"%>
 
     <%end%>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-light text-primary d-block ml-5 my-3" %>
   </div>
 <% end %>
+</div>

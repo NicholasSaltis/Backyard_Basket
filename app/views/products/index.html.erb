@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
-
-<table>
+<h1 class="display-3 d-block text-center">Your Produce</h1>
+<div class="container">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,7 +12,6 @@
       <th>Expiry date</th>
       <th>Stock</th>
       <th>Price per unit</th>
-      <th>Profile</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,7 +26,6 @@
         <td><%= product.expiry_date %></td>
         <td><%= product.stock %></td>
         <td><%= product.price_per_unit %></td>
-        <td><%= product.profile_id %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -38,4 +36,5 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class: "btn btn-light text-primary" %>
+</div>
