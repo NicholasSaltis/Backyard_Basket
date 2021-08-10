@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-    
+    before_action :message_params, only: %i[ new_message ]
     
     def new_message
         puts "************************"
@@ -45,4 +45,9 @@ class MessagesController < ApplicationController
         current_user.send_message(@to, params[:message][:topic], params[:message][:body])
     end
 
+    private
+
+    def message_params
+        params.require(:message).permit(:topic, :body, :profile_id, :response_type)
+    end
 end
