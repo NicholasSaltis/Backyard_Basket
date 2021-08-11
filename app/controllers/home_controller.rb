@@ -5,9 +5,9 @@ class HomeController < ApplicationController
   def browse
 
     if user_signed_in?
-      @nearby_profiles = current_user.profile.address.nearbys(5)
+      @nearby_profiles = current_user.profile.address.nearbys(5).includes(:profile)
     else
-      @profiles = Profile.all
+      @profiles = Profile.all.includes(:address)
     end
     
     

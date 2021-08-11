@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     end
 
     def index
-        @messages = current_user.profile.received_messages
+        @messages = current_user.profile.received_messages.preload(:sent_messageable)
     end
 
     def outbox

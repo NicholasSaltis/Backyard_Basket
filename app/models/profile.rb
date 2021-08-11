@@ -8,4 +8,10 @@ class Profile < ApplicationRecord
   has_one_attached :profile_img
 
   acts_as_messageable :required => :body
+
+  [:user_name, :first_name, :last_name].each do |v|
+    validates v, presence: true
+    validates v, length: { in: 2..75}
+  end
+
 end
