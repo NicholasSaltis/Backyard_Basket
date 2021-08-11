@@ -1,4 +1,4 @@
-
+<%# view for when currently signed in user's profile matches the shown profile's id. edit button only available here.%>
 <% if current_user.profile.id == @profile.id %>
 <%= image_tag @profile.profile_img, class: "mw-30" if @profile.profile_img.attached? %>
 <div class="container">
@@ -24,9 +24,10 @@
   <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-light text-primary" %>
 </div>
 <% else %>
-  
+  <%# different view for user if they are not signed in or their profile id does not match the shown profile's id%>
   <h1 class="text-center display-3 my-5"><%= @profile.user_name %>'s Pantry</h1>
   <div class="row justify-content-center">
+  <%# user details %>
     <div class="col-sm-5">
       <h2 class="text-center my-3">About me</h2>
       <p class="text-center">
@@ -36,6 +37,7 @@
       </p>
       <p class="m-3"><%= @profile.bio %></p>
     </div>
+    <%# contact form that sends a message to displayed user from user currently signed in%>
     <div class="col-sm-5">
       <h2 class="text-center my-3">Contact</h2>
       <div class="form-group mx-3">
@@ -52,7 +54,7 @@
   </div>
   
   
-
+<%# card deck of all products belonging to selected profile. %>
   <div class="row justify-content-center">
         <% @profile.products.each do |product|%>
             <div class="card col-sm-3 m-2">

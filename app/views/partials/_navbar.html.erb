@@ -6,6 +6,7 @@
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+        <%# only browse shown to user if they are not signed in. %>
             <li class="nav-item active">
                 <%=link_to "Browse", browse_path, class: "nav-link"%>
             </li>

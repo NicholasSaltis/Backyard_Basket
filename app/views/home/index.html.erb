@@ -8,6 +8,7 @@
                 <p class="card-text px-5 pb-5">Backyard Basket combines the convenience of a modern marketplace, allowing you to view what people are growing or have overflowing from their pantry and easily list your own home grown products, with the age old practice of sharing your backyard bounty with your neighbours and friends</p>
             </div>
         </div>
+        <%# hides sign up form on home page if the user is already signed in. %>
         <% if user_signed_in?%>
         <% else %>
             <div class="col-sm-5">

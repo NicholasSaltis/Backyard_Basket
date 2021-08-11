@@ -5,7 +5,7 @@
     <p><%= @message.created_at %></p>
     
 </div>
-
+<%# all attributes need to be nested within message[] so that they can be read and accepted by .permit in controller %>
 <div class="form-group mx-3">
 <%= form_with url: new_message_path do |form| %>
     <%# <%= form.label :topic %>

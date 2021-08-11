@@ -14,6 +14,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
+    # for use with simpleform nested fields for address in new profile form. 
     @profile.build_address
   end
 
@@ -24,10 +25,12 @@ class ProfilesController < ApplicationController
   # POST /profiles or /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    # gets current user id for use in profile form hidden field. 
     @profile.user_id = current_user.id
 
     respond_to do |format|
       if @profile.save
+        # redirects to rootpath after creating a profile and address
         format.html { redirect_to root_path, notice: "Profile was successfully created." }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -66,6 +69,7 @@ class ProfilesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # address parameters are passed as address_attributes: [] with all the relevant values inside the array
     def profile_params
       params.require(:profile).permit(:user_name, :first_name, :last_name, :bio, :user_id, :profile_img, address_attributes: [:house_number, :street_name, :suburb, :postcode, :state, :country])
     end

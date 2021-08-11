@@ -9,6 +9,7 @@
     <%= f.input :last_name, class: "my-2"%>
     <%= f.input :bio, class: "my-2"%>
     <%= f.hidden_field :user, value: current_user.id%>
+    <%# nested form fields for address form.%>
     <%=f.fields_for :address do |a|%>
       <%=a.input :house_number, class: "my-2"%>
       <%=a.input :street_name, class: "my-2"%>

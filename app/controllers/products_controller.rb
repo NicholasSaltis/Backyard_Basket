@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
+    # only shows products belonging to the current signed in user. 
     @products = current_user.profile.products.all
   end
 
@@ -22,11 +23,13 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    #passes profile id for use in hidden field of form 
     @product.profile_id = current_user.profile.id
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: "Product was successfully created." }
+        # redirects to products index page instead of product show page. 
+        format.html { redirect_to products_path, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +42,8 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: "Product was successfully updated." }
+        # also redirects to products index. 
+        format.html { redirect_to products_path, notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,6 +68,7 @@ class ProductsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # pictures has value of empty array to allow for multiple image uploads
     def product_params
       params.require(:product).permit(:name, :description, :organic, :harvested_date, :expiry_date, :stock, :price_per_unit, :profile_id, pictures:[])
     end

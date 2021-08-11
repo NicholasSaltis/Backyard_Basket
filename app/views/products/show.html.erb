@@ -40,6 +40,7 @@
 <%= link_to 'Back', products_path %>
 <% end %>
 
+<%# bootstrap carousel for all pictures attached to product. %>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <% if @product.pictures.attached? %>

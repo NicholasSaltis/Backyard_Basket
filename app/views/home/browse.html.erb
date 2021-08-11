@@ -1,18 +1,21 @@
 <div class="container">
     <h1 class="text-center mb-5">Find a Grower near you</h1>
     <div class="row justify-content-center">
+    <%# two different loops required due to the difference in data being passed from controller depending if user is signed in or not. %>
+    <%# view for if user is signed in%>
         <% if user_signed_in? %>
-        <% @nearby_profiles.each do |seller|%>
-            <div class="card col-sm-3 mx-2">
-                <%= image_tag seller.profile.profile_img, class: "card-image-top" if seller.profile.profile_img.attached?%>
-                <div class="card-body">
-                    <h4 class="card-title"><%= seller.profile.user_name %></h4>
-                    <p class="card-text text-muted"><%= seller.suburb %></p>
-                    <%= link_to "View #{seller.profile.user_name}'s Profile", profile_path(id: seller.profile.id), class: "btn btn-light text-primary mx-auto" %>
+            <% @nearby_profiles.each do |seller|%>
+                <div class="card col-sm-3 mx-2">
+                    <%= image_tag seller.profile.profile_img, class: "card-image-top" if seller.profile.profile_img.attached?%>
+                    <div class="card-body">
+                        <h4 class="card-title"><%= seller.profile.user_name %></h4>
+                        <p class="card-text text-muted"><%= seller.suburb %></p>
+                        <%= link_to "View #{seller.profile.user_name}'s Profile", profile_path(id: seller.profile.id), class: "btn btn-light text-primary mx-auto" %>
+                    </div>
+                    
                 </div>
-                
-            </div>
-        <% end %>
+            <% end %>
+    <%# view for if the user is not signed in. shows all profiles instead of just nearby ones. %>     
         <% else %>
             <% @profiles.each do |seller|%>
                 <div class="card col-sm-3">

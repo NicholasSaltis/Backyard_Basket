@@ -13,6 +13,7 @@
   </head>
 
   <body>
+  <%# navbar partial passed current user's profile id to allow for show profile path to work %>
     <%=render partial: "partials/navbar", locals: {profile_id: @profile_id}%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
