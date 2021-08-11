@@ -4,9 +4,9 @@ class MessagesController < ApplicationController
     def new_message
         puts "************************"
         @sender = current_user.profile
-        @recipient = Profile.find(params[:profile_id])
-        @sender.send_message(@recipient, {body: params[:body], topic: params[:topic]})
-        if params[:response_type] == "reply"
+        @recipient = Profile.find(params[:message][:profile_id])
+        @sender.send_message(@recipient, {body: params[:message][:body], topic: params[:message][:topic]})
+        if params[:message][:response_type] == "reply"
             redirect_to messages_path
         end
     end

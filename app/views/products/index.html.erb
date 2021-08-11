@@ -19,17 +19,22 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
+        <td><%= link_to product.name, product %></td>
         <td><%= product.description %></td>
         <td><%= product.organic %></td>
         <td><%= product.harvested_date %></td>
         <td><%= product.expiry_date %></td>
         <td><%= product.stock %></td>
         <td><%= product.price_per_unit %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
+      <tr>
+        <td><span><%= link_to 'Edit', edit_product_path(product) %></span> <span><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+        
+        
+        
+      </tr>
+      
     <% end %>
   </tbody>
 </table>

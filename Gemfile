@@ -36,7 +36,7 @@ gem 'devise'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'country_select', '~> 6.0'
 gem 'acts-as-messageable'
-
+gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 
 group :development, :test do

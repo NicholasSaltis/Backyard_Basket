@@ -10,10 +10,10 @@
 <%= form_with url: new_message_path do |form| %>
     <%# <%= form.label :topic %>
     <%# <%= form.text_field :topic, class: "form-control" %>
-    <%= form.label :body %>
-    <%= form.text_area :body, class: "form-control", size: "30x5" %>
-    <%= form.hidden_field :profile_id, value: @message.sent_messageable.id %>
-    <%= form.hidden_field :response_type, :value => "reply"%>
+    <%= form.label "message[body]" %>
+    <%= form.text_area "message[body]", class: "form-control", size: "30x5" %>
+    <%= form.hidden_field "message[profile_id]", value: @message.sent_messageable.id %>
+    <%= form.hidden_field "message[response_type]", :value => "reply"%>
     <%= form.submit "Send Message", class: "btn btn-light text-primary d-block mx-auto my-3" %>
 <% end %>
 </div>
