@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_user!
+    
     # before action to pass profile id to navbar partial so that it can link to the correct profile.
     before_action :get_profile_id
     # modification to existing after_sign_in_path_for method to redirect the user to create a profile after registering with devise.

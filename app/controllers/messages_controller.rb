@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+    before_action :authenticate_user!
     # controller for acts_as_messageable and user messaging functionality. not created via scaffold 
     # before action to sanitize unwanted parameters only for the new_message method which at the moment serves as the create method
     before_action :message_params, only: %i[ new_message ]
