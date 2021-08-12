@@ -1,7 +1,8 @@
 <%# view for when currently signed in user's profile matches the shown profile's id. edit button only available here.%>
 <% if current_user.profile.id == @profile.id %>
-<%= image_tag @profile.profile_img, class: "mw-30" if @profile.profile_img.attached? %>
-<div class="container">
+
+<div class="container w-70 mx-auto">
+  <%= image_tag @profile.profile_img, class: "w-20" if @profile.profile_img.attached? %>
   <h4>
     <strong><%= @profile.first_name %> <%= @profile.last_name %></strong>
   </h4>
